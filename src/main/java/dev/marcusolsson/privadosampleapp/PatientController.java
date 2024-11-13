@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 class PatientController {
-    private static final Logger logger = LoggerFactory.getLogger(PatientController.class);
-
     private final PatientRepository repository;
 
     PatientController(PatientRepository repository) {
@@ -26,7 +24,5 @@ class PatientController {
     @PostMapping("/patients")
     void register(Patient patient) {
         repository.save(patient);
-
-        logger.info("Registered new patient with SSN: {}", patient.getSsn());
     }
 }
